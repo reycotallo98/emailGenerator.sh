@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Verificar si se proporcionaron los argumentos correctos
+# Verify correctly usage
 if [ $# -ne 3 ]; then
-    echo "Uso: $0 archivo_entrada cadena archivo_salida"
+    echo "Use: $0 input_file string output_file"
     exit 1
 fi
 
@@ -12,7 +12,7 @@ archivo_salida="$3"
 
 # Verificar si el archivo de entrada existe
 if [ ! -f "$archivo_entrada" ]; then
-    echo "El archivo de entrada '$archivo_entrada' no existe."
+    echo "Input file '$archivo_entrada' do not exist."
     exit 1
 fi
 
@@ -21,4 +21,4 @@ while IFS= read -r linea; do
     echo "${linea}${cadena}" >> "$archivo_salida"
 done < "$archivo_entrada"
 
-echo "Documento procesado y guardado en '$archivo_salida'."
+echo "Document succesfully generated in '$archivo_salida'."
